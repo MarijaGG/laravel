@@ -1,14 +1,57 @@
 body {
-    background-color: rgb(30, 75, 90);
-    color: whitesmoke;
+  background: linear-gradient(to right, #ab3f42, #740208);
+  color: #cab5a3;
+  text-align: center;
+}
+
+
+/* This targets only UL elements that are NOT inside <nav> */
+:not(nav) > ul {
+display: flex;
+flex-direction: column; /* Stack items vertically */
+align-items: center; /* Center items horizontally */
+padding: 0;
+margin: 0;
+list-style: none;
+gap: 10px;
 }
 
 li {
-    list-style-type: none;
-  }
+list-style: none;
+}
 
 a { 
-    color: whitesmoke; 
-    text-decoration: none; 
-    
-  }
+color: #cab5a3;;
+text-decoration: none; 
+}
+a:hover {
+  color: #8c7c67;
+}
+
+/* Navigation-specific styles */
+nav {
+display: flex;
+justify-content: center; /* Centers the navigation */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  background-color: #663236;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+nav ul li {
+display: inline;
+}
+
+h1 {
+  background: linear-gradient(to right, #e9e2d2, #cf6c4e, #a03221);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

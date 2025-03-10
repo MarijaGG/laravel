@@ -6,7 +6,7 @@
 
 <ul>
   @foreach ($diaries as $diary)
-    <li>{{ $diary->title }}</li>
+    <li><a href="diaries/{{ $diary->id }}">{{ $diary->title }}<a></li>
   @endforeach
 </ul>
 

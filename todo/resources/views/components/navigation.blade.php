@@ -12,6 +12,9 @@
     <ul>
         <li><a href="/">Sākums</a></li>
         <li><a href="/todos">Visi uzdevumi</a></li>
+        <li><a href="/diaries">Visi ieraksti</a></li>
+        <li><a href="/todos/create">Izveidot blogu ierakstu</a></li>
+        <li><a href="/diaries/create">Izveidot dienasgrāmatas ierakstu</a></li>
     </ul>
 </nav>
 </header>
