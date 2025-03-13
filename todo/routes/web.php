@@ -30,4 +30,8 @@ Route::get('/diaries/edit/{diary}', [DiaryController::class, 'edit']);
 Route::get('/todos/{todo}', [ToDoController::class, 'show']);
 Route::get('/diaries/{diary}', [DiaryController::class, 'show']);
 
+Route::delete('/todos/{todo}', [ToDoController::class, 'destroy']);
+Route::delete('/diaries/{diary}', [DiaryController::class, 'destroy']);
+
+
 

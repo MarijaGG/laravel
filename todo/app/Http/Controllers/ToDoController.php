@@ -23,6 +23,11 @@ class ToDoController extends Controller
         return view("todos.edit", compact("todo"));
       }
     
+    public function destroy(ToDo $todo) {
+      $todo->delete();
+      return redirect("/todos");
+      }
+    
       public function update(Request $request, ToDo $todo) {
         $validated = $request->validate([
           "content" => ["required"],

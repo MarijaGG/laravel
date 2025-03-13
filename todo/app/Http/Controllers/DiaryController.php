@@ -23,6 +23,11 @@ class DiaryController extends Controller
         public function edit(Diary $diary) {
             return view("diaries.edit", compact("diary"));
           }
+
+        public function destroy(Diary $diary) {
+            $diary->delete();
+            return redirect("/diaries");
+            }
         
         public function update(Request $request, Diary $diary) {
             $validated = $request->validate([
