@@ -50,8 +50,23 @@ nav ul li {
 display: inline;
 }
 
-h1 {
+h1, h2 {
   background: linear-gradient(to right, #e9e2d2, #cf6c4e, #a03221);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+button {
+  color: #cab5a3;
+  padding: 0;
+  margin: 10px;
+  gap: 20px;
+  background-color: #663236;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+button:hover {
+    color: #8c7c67;
+  }

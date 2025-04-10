@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
                 $table->id();
+                $table->foreignId('user_id')->constrained()->onDelete('cascade');
                 $table->string("title");
                 $table->string("body", 1000);
                 $table->date("date");
@@ -26,5 +27,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('diaries');
+        $table->dropForeign(['user_id']);
+        $table->dropColumn('user_id');
     }
 };

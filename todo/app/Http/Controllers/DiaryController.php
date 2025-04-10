@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DiaryController extends Controller
 {
        public function index() {
-            $diaries = Diary::all();
+        $diaries = auth()->user()->diaries()->latest()->get();
             return view("diaries.index", compact("diaries"));
           }
 
@@ -17,6 +17,9 @@ class DiaryController extends Controller
           }
         
         public function show(Diary $diary) {
+          if ($diary->user_id !== auth()->id()) {
+            abort(403); // Piekļuve liegta
+          }
             return view("diaries.show", compact("diary"));
           }
         
@@ -53,12 +56,12 @@ class DiaryController extends Controller
            "body" => ["required", "max:255"],
            "date" => ["required", Rule::date()->format('Y-m-d')]
           ]);
-               
-          Diary::create([
+
+          auth()->user()->diaries()->create([
             "title" => $request->title,
             "body" => $request->body,
             "date" => $request->date
-          ]); 
+        ]);
           return redirect("/diaries");
           }
 }

@@ -7,7 +7,10 @@
 
     <ul>
     @foreach ($todos as $todo)
-    <li><a href="todos/{{ $todo->id }}">{{ $todo->content }}<a></li>
+    @if ($todo->user_id === auth()->id())
+        {{-- Rādīt tikai savējo --}}
+        <li><a href="todos/{{ $todo->id }}">{{ $todo->content }}<a></li>
+    @endif
   @endforeach
     </ul>
 </x-layout>

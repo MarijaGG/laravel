@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ToDoController extends Controller
 {
     public function index(){
-        $todos = ToDo::all();
+      $todos = auth()->user()->todos()->latest()->get();
         return view("todos.index", compact("todos"));
     }
 
@@ -16,6 +16,9 @@ class ToDoController extends Controller
       }
     
     public function show(ToDo $todo) {
+      if ($todo->user_id !== auth()->id()) {
+        abort(403); // Piekļuve liegta
+      }
         return view("todos.show", compact("todo"));
       }
 
@@ -48,11 +51,11 @@ class ToDoController extends Controller
       $validated = $request->validate([
        "content" => ["required", "max:255"]
       ]);
-           
-      ToDo::create([
-        "content" => $request->content,
-        "completed" => false
-      ]); 
+    
+      auth()->user()->todos()->create([
+        'content' => $request->input('content'),
+        'completed' => false,
+    ]);
       return redirect("/todos");
       }
 
